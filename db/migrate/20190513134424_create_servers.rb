@@ -4,6 +4,7 @@ class CreateServers < ActiveRecord::Migration[5.2]
       t.belongs_to :admin, null: false
 
       t.string :server_name, null: false
+      t.string :discord_server_id, null: false
     end
   end
 end
