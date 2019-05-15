@@ -2,8 +2,8 @@ class ChatChannel < ApplicationCable::Channel
   def subscribed
     stream_from "chat_#{params[:id]}"
     # stream_from "chat_channel"
-    chat = Channel.find(params[:id])
-    ActionCable.server.broadcast("channel_#{{params[:id]}}", )
+    # chat = Channel.find(params[:id])
+    # ActionCable.server.broadcast("channel_#{{params[:id]}}", )
   end
 
   def unsubscribed

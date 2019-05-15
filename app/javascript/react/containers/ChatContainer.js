@@ -7,7 +7,7 @@ class ChatContainer extends Component {
       avatar_url: "",
       username: "",
       timestamp: "",
-      message_content: ""  
+      message_content: ""
     };
   };
 
