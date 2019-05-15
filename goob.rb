@@ -10,10 +10,7 @@ goob_bot = Discordrb::Bot.new token: goob_token
 
 puts "This bot's invite URL is #{goob_bot.invite_url}."
 
-binding.pry
-
 goob_bot.message do |event|
-  binding.pry
   server = event.server
   server_name = event.server.name
   server_id = event.server.id

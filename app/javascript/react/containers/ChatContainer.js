@@ -1,11 +1,13 @@
 import React, { Component } from "react";
+import Message from "../components/Message";
+import TextFieldWithSubmit from "../components/TextFieldWithSubmit";
 
 class ChatContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      message_author: {},
       avatar_url: "",
-      username: "",
       timestamp: "",
       message_content: ""
     };
@@ -38,6 +40,7 @@ class ChatContainer extends Component {
         <div className="example">EXAMPLE</div>
         <div className="example-chat-embed-container">
           <div className="example-chat-embed-box">
+            <Message />
             <div className="example-chat-message-box">
               <img src="https://images2.imgbox.com/12/49/xdBpmsag_o.jpg" />
               <div className="example-chat-message-info">
