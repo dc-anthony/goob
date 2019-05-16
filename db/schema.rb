@@ -40,6 +40,8 @@ ActiveRecord::Schema.define(version: 2019_05_13_140808) do
   create_table "messages", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "channel_id"
+    t.string "discord_message_id"
+    t.string "discord_message_timestamp"
     t.text "message_content", null: false
     t.string "timestamp", null: false
     t.index ["channel_id"], name: "index_messages_on_channel_id"
@@ -49,6 +51,8 @@ ActiveRecord::Schema.define(version: 2019_05_13_140808) do
   create_table "servers", force: :cascade do |t|
     t.bigint "admin_id", null: false
     t.string "server_name", null: false
+    t.string "discord_server_id", null: false
+    t.text "owner", null: false
     t.index ["admin_id"], name: "index_servers_on_admin_id"
   end
 
