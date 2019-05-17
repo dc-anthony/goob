@@ -6,10 +6,10 @@ class ChatContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      message_author: {},
-      avatar_url: "",
-      timestamp: "",
-      message_content: ""
+      messageAuthor: {},
+      avatarUrl: "",
+      discordTimestamp: "",
+      messageContent: ""
     };
   };
 
@@ -40,7 +40,12 @@ class ChatContainer extends Component {
         <div className="example">EXAMPLE</div>
         <div className="example-chat-embed-container">
           <div className="example-chat-embed-box">
-            <Message />
+            <Message
+              messageAuthor= {this.state.messageAuthor}
+              avatarUrl= {this.state.avatarUrl}
+              discordTimestamp= {this.state.discordTimestamp}
+              messageContent= {this.state.messageContent}
+            />
             <div className="example-chat-message-box">
               <img src="https://images2.imgbox.com/68/de/tan8yfZQ_o.jpg" />
               <div className="example-chat-message-info two">
