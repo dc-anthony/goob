@@ -31,6 +31,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'httparty', '~> 0.17.0'
 gem 'discordrb', '~> 3.3'
+gem 'sucker_punch', '~> 2.0'
 
 group :development, :test do
   gem "rspec-rails"
