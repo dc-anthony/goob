@@ -6,24 +6,24 @@ class ChatContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      message_author: {},
-      avatar_url: "",
-      timestamp: "",
-      message_content: ""
+      messageAuthor: { username: "dc"},
+      avatarUrl: "https://images2.imgbox.com/12/49/xdBpmsag_o.jpg",
+      discordTimestamp: "Today at 8:39 AM",
+      messageContent: "lakdfhladshfldshaf"
     };
   };
 
   componentDidMount() {
+    console.log("yeet")
     App.ChatChannel = App.cable.subscriptions.create (
       {
-        channel: "ChatChannel",
+        channel: "ChatChannel"
         // id: this.props.params.id
       },
       {
         connected: () => console.log("ChatChannel connected"),
         disconnected: () => console.log("ChatChannel disconnected"),
         received: data => {
-          debugger
           this.setState();
           console.log(data)
         }
@@ -40,15 +40,12 @@ class ChatContainer extends Component {
         <div className="example">EXAMPLE</div>
         <div className="example-chat-embed-container">
           <div className="example-chat-embed-box">
-            <Message />
-            <div className="example-chat-message-box">
-              <img src="https://images2.imgbox.com/12/49/xdBpmsag_o.jpg" />
-              <div className="example-chat-message-info">
-                <span className="message-info-username">dc</span>
-                <span className="message-info-time">Today at 8:29 AM</span>
-              </div>
-              <div className="example-chat-message-content">dsfksadjflsadf</div>
-            </div>
+            <Message
+              messageAuthor= {this.state.messageAuthor}
+              avatarUrl= {this.state.avatarUrl}
+              discordTimestamp= {this.state.discordTimestamp}
+              messageContent= {this.state.messageContent}
+            />
             <div className="example-chat-message-box">
               <img src="https://images2.imgbox.com/68/de/tan8yfZQ_o.jpg" />
               <div className="example-chat-message-info two">
