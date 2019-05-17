@@ -4,7 +4,6 @@ require 'discordrb'
 require 'json'
 require 'pry'
 
-goob_token = 'NTcwMTIyNzA5MjAwMTQyMzM3.XNmZNg.af34LlnC5DjVKiiqIQhWUc3G3AI'
 goob_bot = Discordrb::Bot.new token: goob_token
 
 puts "This bot's invite URL is #{goob_bot.invite_url}."
