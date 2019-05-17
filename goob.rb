@@ -5,7 +5,6 @@ require 'json'
 require 'pry'
 require 'httparty'
 
-goob_token = "NTcwMTIyNzA5MjAwMTQyMzM3.XN7Hvg.0RjP9IwhEe_yxL3jicUGBGWmtMI"
 goob_bot = Discordrb::Bot.new token: goob_token
 
 puts "This bot's invite URL is #{goob_bot.invite_url}."
