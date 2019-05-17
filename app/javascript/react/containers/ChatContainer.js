@@ -14,21 +14,22 @@ class ChatContainer extends Component {
   };
 
   componentDidMount() {
+    console.log("yeet")
     App.ChatChannel = App.cable.subscriptions.create (
       {
-        channel: "ChatChannel",
+        channel: "ChatChannel"
         // id: this.props.params.id
       },
       {
         connected: () => console.log("ChatChannel connected"),
         disconnected: () => console.log("ChatChannel disconnected"),
         received: data => {
-          debugger
           this.setState();
           console.log(data)
         }
       }
     );
+    console.log("dank")
   }
 
   render() {

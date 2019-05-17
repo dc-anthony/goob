@@ -1,6 +1,5 @@
 App.chat = App.cable.subscriptions.create("ChatChannel", {
   connected: function() {
-    debugger
     // Called when the subscription is ready for use on the server
   },
 

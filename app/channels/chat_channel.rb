@@ -5,7 +5,7 @@ require 'pry'
 class ChatChannel < ApplicationCable::Channel
   def subscribed
     # stream_from "chat_#{params[:id]}"
-    stream_from "chat_channel"
+    stream_from :chat_channel
     # chat = Channel.find(params[:id])
     # ActionCable.server.broadcast("channel_#{{params[:id]}}", )
   end
@@ -31,7 +31,7 @@ class ChatChannel < ApplicationCable::Channel
       "user": data["user"]
     }
 
-    ActionCable.server.broadcast("chat_#{params[:id]}", chat_json)
+    ActionCable.server.broadcast(:chat_channel, chat_json)
   end
 
   def create_messages(message)
