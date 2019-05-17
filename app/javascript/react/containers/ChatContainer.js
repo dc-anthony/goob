@@ -29,7 +29,6 @@ class ChatContainer extends Component {
         }
       }
     );
-    console.log("dank")
   }
 
   render() {
@@ -42,14 +41,6 @@ class ChatContainer extends Component {
         <div className="example-chat-embed-container">
           <div className="example-chat-embed-box">
             <Message />
-            <div className="example-chat-message-box">
-              <img src="https://images2.imgbox.com/12/49/xdBpmsag_o.jpg" />
-              <div className="example-chat-message-info">
-                <span className="message-info-username">dc</span>
-                <span className="message-info-time">Today at 8:29 AM</span>
-              </div>
-              <div className="example-chat-message-content">dsfksadjflsadf</div>
-            </div>
             <div className="example-chat-message-box">
               <img src="https://images2.imgbox.com/68/de/tan8yfZQ_o.jpg" />
               <div className="example-chat-message-info two">
