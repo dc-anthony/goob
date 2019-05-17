@@ -4,6 +4,8 @@ require 'discordrb'
 require 'json'
 require 'pry'
 require 'httparty'
+require_relative "./config/environment"
+# require Rails.root.join("app/models/Message")
 
 goob_token = "NTcwMTIyNzA5MjAwMTQyMzM3.XN7Hvg.0RjP9IwhEe_yxL3jicUGBGWmtMI"
 goob_bot = Discordrb::Bot.new token: goob_token
@@ -47,17 +49,17 @@ goob_bot.message do |event|
   #   discord_message_content: event.message.content
   # })
 
-  Message.create!(
-    discord_server_name,
-    discord_server_id,
-    discord_channel_name,
-    discord_channel_id,
-    discord_message_author,
-    discord_message_author_avatarUrl,
-    discord_message_id,
-    discord_message_timestamp,
-    discord_message_content
-  )
+  Message.create! do |m|
+    m.discord_server_name = discord_server_name,
+    m.discord_server_id = discord_server_id,
+    m.discord_channel_name = discord_channel_name,
+    m.discord_channel_id = discord_channel_id,
+    m.discord_message_author = discord_message_author,
+    m.discord_message_author = discord_message_author_avatarUrl,
+    m.discord_message_id = discord_message_id,
+    m.discord_message_timestamp = discord_message_timestamp,
+    m.discord_message_content = discord_message_content
+  end
 
 end
 
