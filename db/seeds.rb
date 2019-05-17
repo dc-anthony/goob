@@ -13,6 +13,7 @@ discord_channel_id_1 = 570746041817890828
 discord_message_author_name_1 = "dc"
 discord_message_author_id_1 = 570120902583517196
 discord_message_author_discriminator_1 = "1053"
+discord_message_author_avatarUrl_1 = "https://cdn.discordapp.com/avatars/570120902583517196/3473ec2f35fa7f020c21491ed5c65d67.webp"
 discord_message_id_1 = 578972803621978113
 discord_message_timestamp_1 = "2019-05-17 15:51:13 +0000"
 discord_message_content_1 = "Hello, Goob!"
@@ -25,6 +26,7 @@ message_1 = Message.create!(
   discord_channel_name: discord_channel_name_1,
   discord_channel_id: discord_channel_id_1,
   discord_message_author: discord_message_author_name_1,
+  discord_message_author_avatarUrl: discord_message_author_avatarUrl_1,
   discord_message_id: discord_message_id_1,
   discord_message_timestamp: discord_message_timestamp_1,
   discord_message_content: discord_message_content_1

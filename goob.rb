@@ -31,6 +31,7 @@ goob_bot.message do |event|
   discord_channel_name = event.channel.name
   discord_channel_id = event.channel.id
   discord_message_author = event.message.author
+  discord_message_author_avatarUrl = event.author.avatar_url
   discord_message_id = event.message.id
   discord_message_timestamp = event.message.timestamp.to_s
   discord_message_content = event.message.content
@@ -52,6 +53,7 @@ goob_bot.message do |event|
     discord_channel_name,
     discord_channel_id,
     discord_message_author,
+    discord_message_author_avatarUrl,
     discord_message_id,
     discord_message_timestamp,
     discord_message_content
