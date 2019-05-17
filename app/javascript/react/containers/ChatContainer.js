@@ -7,10 +7,6 @@ class ChatContainer extends Component {
     super(props);
     this.state = {
       messages: [],
-      messageAuthor: { username: "dc"},
-      avatarUrl: "https://images2.imgbox.com/12/49/xdBpmsag_o.jpg",
-      discordTimestamp: "Today at 8:39 AM",
-      messageContent: "lakdfhladshfldshaf"
     };
   };
 

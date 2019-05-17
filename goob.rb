@@ -33,7 +33,7 @@ goob_bot.message do |event|
   discord_message_author = event.message.author
   discord_message_author_avatarUrl = event.author.avatar_url
   discord_message_id = event.message.id
-  discord_message_timestamp = event.message.timestamp.to_s
+  discord_message_timestamp = event.message.timestamp.to_s.to_date
   discord_message_content = event.message.content
 
   # HTTParty.post("app/controllers/api/v1/messages_controller", body: {
