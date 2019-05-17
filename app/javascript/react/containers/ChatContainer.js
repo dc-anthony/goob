@@ -6,32 +6,59 @@ class ChatContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      messageAuthor: { username: "dc"},
-      avatarUrl: "https://images2.imgbox.com/12/49/xdBpmsag_o.jpg",
-      discordTimestamp: "Today at 8:39 AM",
-      messageContent: "lakdfhladshfldshaf"
+      messages: [],
     };
   };
 
   componentDidMount() {
     console.log("Component Mounted")
-    App.ChatChannel = App.cable.subscriptions.create (
-      {
-        channel: "ChatChannel"
-        // id: this.props.params.id
-      },
-      {
-        connected: () => console.log("ChatChannel connected"),
-        disconnected: () => console.log("ChatChannel disconnected"),
-        received: data => {
-          this.setState();
-          console.log(data)
+    fetch(`/api/v1/messages`)
+    .then(response => {
+      if (response.ok) {
+        return response;
+      } else {
+        let errorMessage = `${response.status } (${response.statusText})`,
+        error = new Error(errorMessage);
+        throw(error);
         }
-      }
-    );
+      })
+    .then(response => response.json())
+    .then(body => {
+      this.setState({messages: body})
+    })
+    .catch(error => console.error(`Error in fetch: ${error.message}`));
+
+
+    // App.ChatChannel = App.cable.subscriptions.create (
+    //   {
+    //     channel: "ChatChannel"
+    //     // id: this.props.params.id
+    //   },
+    //   {
+    //     connected: () => console.log("ChatChannel connected"),
+    //     disconnected: () => console.log("ChatChannel disconnected"),
+    //     received: data => {
+    //       this.setState();
+    //       console.log(data)
+    //     }
+    //   }
+    // );
   }
 
   render() {
+
+    let messages = this.state.messages.map(message => {
+      return(
+        <Message
+          key={message.id}
+          id={message.id}
+          messageAuthor={message.discord_message_author}
+          avatarUrl={message.discord_message_author_avatarUrl}
+          discordTimestamp={message.discord_message_timestamp}
+          messageContent={message.discord_message_content}
+        />
+      )
+    })
 
     return(
       <div className="app-component">
@@ -40,12 +67,7 @@ class ChatContainer extends Component {
         <div className="example">EXAMPLE</div>
         <div className="example-chat-embed-container">
           <div className="example-chat-embed-box">
-            <Message
-              messageAuthor= {this.state.messageAuthor}
-              avatarUrl= {this.state.avatarUrl}
-              discordTimestamp= {this.state.discordTimestamp}
-              messageContent= {this.state.messageContent}
-            />
+            {messages}
             <div className="example-chat-message-box">
               <img src="https://images2.imgbox.com/68/de/tan8yfZQ_o.jpg" />
               <div className="example-chat-message-info two">

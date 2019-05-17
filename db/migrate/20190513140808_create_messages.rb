@@ -6,6 +6,7 @@ class CreateMessages < ActiveRecord::Migration[5.2]
       t.string :discord_channel_name, null: false
       t.string :discord_channel_id, null: false
       t.string :discord_message_author, null: false
+      t.string :discord_message_author_avatarUrl, null: false
       t.string :discord_message_id, null: false
       t.string :discord_message_timestamp, null: false
       t.string :discord_message_content, null: false
