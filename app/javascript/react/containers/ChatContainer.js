@@ -14,7 +14,7 @@ class ChatContainer extends Component {
   };
 
   componentDidMount() {
-    console.log("yeet")
+    console.log("Component Mounted")
     App.ChatChannel = App.cable.subscriptions.create (
       {
         channel: "ChatChannel"

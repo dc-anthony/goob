@@ -10,61 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_16_174440) do
+ActiveRecord::Schema.define(version: 2019_05_13_140808) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "admins", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.index ["user_id"], name: "index_admins_on_user_id"
-  end
-
-  create_table "channels", force: :cascade do |t|
-    t.bigint "server_id"
-    t.string "channel_name", null: false
-    t.index ["server_id"], name: "index_channels_on_server_id"
-  end
-
-  create_table "ip_addresses", force: :cascade do |t|
-    t.string "ip", null: false
-  end
-
-  create_table "locations", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "ip_address_id"
-    t.index ["ip_address_id"], name: "index_locations_on_ip_address_id"
-    t.index ["user_id"], name: "index_locations_on_user_id"
-  end
-
   create_table "messages", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "channel_id"
-    t.string "discord_message_id"
-    t.string "discord_message_timestamp"
-    t.text "message_content", null: false
-    t.string "timestamp", null: false
-    t.index ["channel_id"], name: "index_messages_on_channel_id"
-    t.index ["user_id"], name: "index_messages_on_user_id"
-  end
-
-  create_table "notifications", force: :cascade do |t|
-    t.bigint "user_id"
-    t.integer "recipient_id"
-    t.string "action"
-    t.string "notifiable_type"
-    t.integer "notifiable_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_notifications_on_user_id"
-  end
-
-  create_table "servers", force: :cascade do |t|
-    t.bigint "admin_id", null: false
-    t.string "server_name", null: false
+    t.string "discord_server_name", null: false
     t.string "discord_server_id", null: false
-    t.text "owner", null: false
-    t.index ["admin_id"], name: "index_servers_on_admin_id"
+    t.string "discord_channel_name", null: false
+    t.string "discord_channel_id", null: false
+    t.string "discord_message_author", null: false
+    t.string "discord_message_id", null: false
+    t.string "discord_message_timestamp", null: false
+    t.string "discord_message_content", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -80,5 +39,4 @@ ActiveRecord::Schema.define(version: 2019_05_16_174440) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "notifications", "users"
 end
