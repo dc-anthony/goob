@@ -27,6 +27,7 @@ body {
   color: #eee;
   max-width: 100vw;
   overflow: hidden;
+  z-index: -1000;
 }
 
 h1 {
@@ -34,7 +35,15 @@ h1 {
   font-family: 'Monoton', cursive;
   font-size: 15vw;
   font-weight: initial;
+  position: relative;
   text-align: center;
+}
+
+h1::before {
+  content: attr(title);
+  position:absolute;
+  -webkit-text-stroke: 0.23em #111;
+  z-index:-100;
 }
 
 .main-subtitle {
@@ -52,19 +61,36 @@ h1 {
   z-index: -100;
 }
 
+.discord-svg {
+  color: #8CDBB7;
+  left: 7vw;
+  position: absolute;
+  top: 12vh;
+  transform: rotate(-25deg);
+  width: 13vw;
+  z-index: -50;
+}
+
+@media only screen and (max-width: 700px) {
+  .discord-svg {
+    width: 10vw;
+    top: 5vh;
+  }
+}
+
 .example {
   background-color: #8CDBB7;
   border: 5px solid #111;
-  bottom: 75px;
+  bottom: 100px;
   color: #111;
   font-family: 'Orbitron', sans-serif;
-  font-size: 25px;
+  font-size: 20px;
   font-weight: 900;
-  letter-spacing: 15px;
+  letter-spacing: 7px;
   outline: 2px solid #8CDBB7;
   padding: 10px;
   position: absolute;
-  right: -200px;
+  right: -175px;
   text-align: center;
   min-width: 600px;
   transform: rotate(-45deg);
@@ -76,6 +102,6 @@ h1 {
   text-align: center;
 }
 
-.one {
-  font-family: 'Baloo Bhai', cursive;
+.app-component i {
+  font-size: 40px;
 }
