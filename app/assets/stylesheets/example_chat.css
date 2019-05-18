@@ -1,5 +1,5 @@
 .example-chat-embed-container {
-  bottom: 0;
+  bottom: 100px;
   margin: 0 auto;
   position: absolute;
   text-align: center;
@@ -8,8 +8,9 @@
 }
 
 .example-chat-embed-box {
-  height: 53vh;
+  height: 100vh;
   margin: 0 auto;
+  overflow: scroll;
   text-align: left;
   width: 50%;
 }
