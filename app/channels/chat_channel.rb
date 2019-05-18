@@ -1,7 +1,3 @@
-require 'discordrb'
-require 'json'
-require 'pry'
-
 class ChatChannel < ApplicationCable::Channel
   def subscribed
     # stream_from "chat_#{params[:id]}"

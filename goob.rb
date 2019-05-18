@@ -2,8 +2,6 @@
 
 require 'discordrb'
 require 'json'
-require 'pry'
-require 'httparty'
 require_relative "./config/environment"
 # require Rails.root.join("app/models/Message")
 
@@ -14,7 +12,6 @@ goob_bot = Discordrb::Bot.new token: goob_token
 puts "This bot's invite URL is #{goob_bot.invite_url}."
 
 goob_bot.message do |event|
-  # binding.pry
   # server = event.server
   # server_name = event.server.name
   # server_id = event.server.id
