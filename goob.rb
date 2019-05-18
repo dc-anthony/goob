@@ -7,6 +7,8 @@ require 'httparty'
 require_relative "./config/environment"
 # require Rails.root.join("app/models/Message")
 
+
+goob_token = 'NTcwMTIyNzA5MjAwMTQyMzM3.XNmZNg.af34LlnC5DjVKiiqIQhWUc3G3AI'
 goob_bot = Discordrb::Bot.new token: goob_token
 
 puts "This bot's invite URL is #{goob_bot.invite_url}."
@@ -37,17 +39,6 @@ goob_bot.message do |event|
   discord_message_timestamp = event.message.timestamp.to_s.to_date
   discord_message_content = event.message.content
 
-  # HTTParty.post("app/controllers/api/v1/messages_controller", body: {
-  #   discord_server_name: event.server.name,
-  #   discord_server_id: event.server.id,
-  #   discord_channel_name: event.channel.name,
-  #   discord_channel_id: event.channel.id,
-  #   discord_message_author: event.message.author,
-  #   discord_message_id: event.message.id,
-  #   discord_message_timestamp: event.message.timestamp,
-  #   discord_message_content: event.message.content
-  # })
-
   Message.create! do |m|
     m.discord_server_name = discord_server_name,
     m.discord_server_id = discord_server_id,
@@ -59,18 +50,6 @@ goob_bot.message do |event|
     m.discord_message_timestamp = discord_message_timestamp,
     m.discord_message_content = discord_message_content
   end
-
 end
 
 goob_bot.run
-#
-#
-#
-# t.string :discord_server_name, null: false
-# t.string :discord_server_id, null: false
-# t.string :discord_channel_name, null: false
-# t.string :discord_channel_id, null: false
-# t.string :discord_message_author, null: false
-# t.string :discord_message_id, null: false
-# t.string :discord_message_timestamp, null: false
-# t.string :discord_message_content, null: false
