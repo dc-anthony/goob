@@ -6,12 +6,11 @@ class ChatContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      messages: [],
+      messages: []
     };
   };
 
-  componentDidMount() {
-    console.log("Component Mounted")
+  fetchCall = () => {
     fetch(`/api/v1/messages`)
     .then(response => {
       if (response.ok) {
@@ -26,27 +25,37 @@ class ChatContainer extends Component {
     .then(body => {
       this.setState({messages: body})
     })
-    .catch(error => console.error(`Error in fetch: ${error.message}`));
-
-
-    // App.ChatChannel = App.cable.subscriptions.create (
-    //   {
-    //     channel: "ChatChannel"
-    //     // id: this.props.params.id
-    //   },
-    //   {
-    //     connected: () => console.log("ChatChannel connected"),
-    //     disconnected: () => console.log("ChatChannel disconnected"),
-    //     received: data => {
-    //       this.setState();
-    //       console.log(data)
-    //     }
-    //   }
-    // );
+    .catch(error => console.error(`Error in fetch: ${error.message}`))
   }
 
-  render() {
+  componentDidMount() {
+    console.log("Component Mounted")
+    this.fetchCall();
+    this.interval = setInterval(this.fetchCall, 1000);
+  }
 
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
+
+
+// App.ChatChannel = App.cable.subscriptions.create (
+//   {
+//     channel: "ChatChannel"
+//     // id: this.props.params.id
+//   },
+//   {
+//     connected: () => console.log("ChatChannel connected"),
+//     disconnected: () => console.log("ChatChannel disconnected"),
+//     received: data => {
+//       this.setState();
+//       console.log(data)
+//     }
+//   }
+// );
+
+
+  render() {
     let messages = this.state.messages.map(message => {
       return(
         <Message
