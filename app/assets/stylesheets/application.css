@@ -61,20 +61,42 @@ h1::before {
   z-index: -100;
 }
 
+@media only screen and (max-width: 500px) {
+  .main-subtitle {
+    font-size: 12px;
+    letter-spacing: 2px;
+  }
+}
+
+@media only screen and (max-height: 500px) {
+  h1 {
+    font-size: 35px;
+  }
+  .main-subtitle {
+    font-size: 14px;
+  }
+  .discord-svg {
+    top: 5px !important;
+    width: 50px !important;
+  }
+}
+
 .discord-svg {
   color: #8CDBB7;
   left: 7vw;
   position: absolute;
-  top: 12vh;
+  top: 10vh;
   transform: rotate(-25deg);
   width: 13vw;
   z-index: -50;
+  animation: discordButtonAnimate 2s;
+  -webkit-animation: discordButtonAnimate 2s;
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 1000px) {
   .discord-svg {
     width: 10vw;
-    top: 5vh;
+    top: 30px;
   }
 }
 
@@ -104,4 +126,82 @@ h1::before {
 
 .app-component i {
   font-size: 40px;
+}
+
+
+/* KEYFRAMES FOR CSS ANIMATION */
+@-webkit-keyframes discordButtonAnimate {
+  from,
+  60%,
+  75%,
+  90%,
+  to {
+    -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(3000px, 0, 0);
+    transform: translate3d(3000px, 0, 0), rotate(-25deg);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: translate3d(-25px, 0, 0);
+    transform: translate3d(-25px, 0, 0);
+  }
+
+  75% {
+    -webkit-transform: translate3d(10px, 0, 0), rotate(-25deg);
+    transform: translate3d(10px, 0, 0), rotate(-25deg);
+  }
+
+  90% {
+    -webkit-transform: translate3d(-5px, 0, 0), rotate(-25deg);
+    transform: translate3d(-5px, 0, 0), rotate(-25deg);
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0), rotate(-25deg);
+    transform: translate3d(0, 0, 0), rotate(-25deg);
+  }
+}
+
+@keyframes discordButtonAnimate {
+  from,
+  60%,
+  75%,
+  90%,
+  to {
+    -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(3000px, 0, 0);
+    transform: translate3d(3000px, 0, 0);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: translate3d(-25px, 0, 0);
+    transform: translate3d(-25px, 0, 0);
+  }
+
+  75% {
+    -webkit-transform: translate3d(10px, 0, 0), rotate(-25deg);
+    transform: translate3d(10px, 0, 0), rotate(-25deg);
+  }
+
+  90% {
+    -webkit-transform: translate3d(-5px, 0, 0), rotate(-25deg);
+    transform: translate3d(-5px, 0, 0), rotate(-25deg);
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0), rotate(-25deg);
+    transform: translate3d(0, 0, 0), rotate(-25deg);
+  }
 }
