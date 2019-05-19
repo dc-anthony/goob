@@ -10,9 +10,17 @@
 .example-chat-embed-box {
   height: 100vh;
   margin: 0 auto;
-  overflow: scroll;
+  overflow-x: hidden;
+  overflow-y: scroll;
   text-align: left;
   width: 50%;
+}
+
+@media only screen and (max-width: 850px) {
+  .example-chat-embed-box {
+    overflow-x: hidden;
+    width: 95%;
+  }
 }
 
 .example-chat-message-box {
