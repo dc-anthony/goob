@@ -5,27 +5,12 @@ require 'json'
 require_relative "./config/environment"
 # require Rails.root.join("app/models/Message")
 
-
 goob_token = 'NTcwMTIyNzA5MjAwMTQyMzM3.XOIJsw.a9KkrppIgGnb4HS2lrrQIN-PjoY'
 goob_bot = Discordrb::Bot.new token: goob_token
 
 puts "This bot's invite URL is #{goob_bot.invite_url}."
 
 goob_bot.message do |event|
-  # server = event.server
-  # server_name = event.server.name
-  # server_id = event.server.id
-  # server_channels = event.server.channels
-  # channel = event.channel
-  # channel_name = event.channel.name
-  # channel_id = event.channel.id
-  # message = event.message
-  # message_content = event.message.content
-  # message_id = event.message.id
-  # message_timestamp = event.message.timestamp
-  # message_author = event.message.author
-  # message_channel = event.message.channel
-
   discord_server_name = event.server.name
   discord_server_id = event.server.id
   discord_channel_name = event.channel.name
