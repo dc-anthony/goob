@@ -28,10 +28,10 @@ class ChatContainer extends Component {
     .then(response => response.json())
     .then(body => {
       if (body.length > this.state.messages.length) {
-        let chatDiv = document.querySelector(".example-chat-embed-box");
-        chatDiv.scrollTop = chatDiv.scrollHeight;
+        // let chatDiv = document.querySelector(".example-chat-embed-box");
+        // chatDiv.scrollTop = chatDiv.scrollHeight;
+        this.setState({messages: body})
       }
-      this.setState({messages: body})
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   }
