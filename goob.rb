@@ -5,7 +5,7 @@ require 'json'
 require_relative "./config/environment"
 # require Rails.root.join("app/models/Message")
 
-goob_token = 'NTcwMTIyNzA5MjAwMTQyMzM3.XOIJsw.a9KkrppIgGnb4HS2lrrQIN-PjoY'
+goob_token = 'insert goob token here'
 goob_bot = Discordrb::Bot.new token: goob_token
 
 puts "This bot's invite URL is #{goob_bot.invite_url}."
