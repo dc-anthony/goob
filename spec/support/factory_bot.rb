@@ -1,10 +1,5 @@
 require 'factory_bot_rails'
 
-FactoryBot.define do
-  factory :user do
-    sequence(:email) {|n| "user#{n}@example.com" }
-    password { 'password' }
-    password_confirmation { 'password' }
-    role { "guest" }
-  end
+RSpec.configure do |config|
+  config.include FactoryBot::Syntax::Methods
 end
